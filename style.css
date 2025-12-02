@@ -1,0 +1,159 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+:root {
+    --gold: #c5a059; /* Dourado mais metálico */
+    --gold-light: #e6dace;
+    --text-dark: #2c2c2c;
+    --white: #ffffff;
+    --bg-texture: #fdfbf7; /* Um branco "off-white" mais quente */
+    --font-script: 'Great Vibes', cursive;
+    --font-serif: 'Cormorant Garamond', serif; /* Fonte mais elegante estilo livro */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-serif);
+    color: var(--text-dark);
+    background-color: var(--bg-texture);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* --- NAVEGAÇÃO --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 100;
+}
+.transparent-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    color: var(--white); /* Texto branco na home */
+}
+.transparent-nav .logo, .transparent-nav a { color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+.logo { font-family: var(--font-serif); font-size: 2rem; font-weight: bold; letter-spacing: 2px; }
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-dark); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+
+/* --- PÁGINA INICIAL (HOME) --- */
+.hero-fullscreen {
+    height: 100vh;
+    /* Substitua pela sua foto do pôr do sol */
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: var(--white);
+}
+
+/* Camada escura suave para o texto aparecer */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
+
+.main-title { font-size: 8rem; font-family: var(--font-serif); margin-bottom: 0; line-height: 0.8; }
+.subtitle { font-family: var(--font-script); font-size: 4rem; color: var(--gold-light); margin-top: -10px; }
+.quote { font-style: italic; margin-top: 20px; font-size: 1.2rem; letter-spacing: 2px; }
+
+/* Divisor Dourado */
+.divider-gold { height: 2px; width: 100px; background-color: var(--gold); margin: 20px auto; }
+
+/* --- PÁGINA DO CONVITE (CARTÃO) --- */
+.invite-page { background-color: #f0ebe5; /* Fundo da mesa/fundo geral */ }
+
+.invite-container {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* O "Papel" do convite */
+.card-frame {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 900px;
+    padding: 60px;
+    position: relative; /* Importante para as flores */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+/* Espaços para as Flores (Floral Corners) */
+.floral-corner {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* Para ver onde elas ficam, deixei uma borda temporária. Remova depois de por a imagem */
+    /* border: 1px dashed red; */ 
+}
+
+/* Aqui você coloca o link da imagem da flor PNG */
+.top-left { top: -20px; left: -20px; background-image: url('sua-flor-esquerda-cima.png'); }
+.top-right { top: -20px; right: -20px; background-image: url('sua-flor-direita-cima.png'); transform: scaleX(-1); }
+.bottom-left { bottom: -20px; left: -20px; background-image: url('sua-flor-esquerda-baixo.png'); transform: scaleY(-1); }
+.bottom-right { bottom: -20px; right: -20px; background-image: url('sua-flor-direita-baixo.png'); transform: scale(-1); }
+
+.card-content { position: relative; z-index: 5; }
+
+.monogram { font-size: 3rem; color: var(--gold); margin-bottom: 10px; }
+.cursive-title { font-family: var(--font-script); font-size: 5rem; color: var(--gold); line-height: 1; margin-bottom: 30px; }
+
+/* Wrapper do vídeo com borda dourada */
+.video-wrapper {
+    border: 4px double var(--gold-light);
+    padding: 10px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+.video-wrapper iframe { width: 100%; aspect-ratio: 16/9; display: block; }
+
+.details-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+.detail-item h3 { font-family: var(--font-script); font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+
+/* Botão Dourado Estilo Luxo */
+.btn-gold {
+    display: inline-block;
+    background: linear-gradient(45deg, #c5a059, #e6dace, #c5a059);
+    background-size: 200%;
+    color: var(--white);
+    padding: 15px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+.btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-title { font-size: 5rem; }
+    .subtitle { font-size: 2.5rem; }
+    .card-frame { padding: 20px; margin-top: 50px; }
+    .details-grid { flex-direction: column; gap: 20px; }
+    .floral-corner { width: 100px; height: 100px; } /* Flores menores no celular */
+}

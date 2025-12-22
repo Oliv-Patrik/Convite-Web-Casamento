@@ -44,7 +44,7 @@ nav {
 .hero-fullscreen {
     height: 100vh;
     /* Substitua pela sua foto do pôr do sol */
-    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    background: url('Image/76994.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,8 +163,18 @@ nav {
     max-width: 800px;   /* Limita a largura para o texto não ficar muito esticado */
     margin: 60px auto;  /* Centraliza o bloco na tela e dá espaço em cima/baixo */
     padding: 0 20px;    /* Garante que o texto não cole nas bordas no celular */
+    font-size: 1.5rem; /* Aumenta um pouco o tamanho da fonte para melhor leitura */
 }
 
 .text-center {
     text-align: center; /* O comando mágico que centraliza o texto */
+}
+
+/* Correção do Rodapé */
+footer {
+    text-align: center; /* Centraliza o texto */
+    padding: 20px;      /* Dá um espacinho interno */
+    margin-top: 40px;   /* Afasta do conteúdo de cima */
+    font-size: 2rem;  /* Deixa a fonte um pouquinho menor e mais delicada */
+    color: var(--gold); /* Opcional: Deixa a data dourada para combinar */
 }

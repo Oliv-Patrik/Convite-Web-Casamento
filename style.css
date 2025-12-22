@@ -207,11 +207,11 @@ nav {
 
     /* 4. Aumentando as fontes para ficarem legíveis e bonitas */
     .main-title { 
-        font-size: 4rem; /* Antes estava 1.5rem (muito pequeno) */
+        font-size: 3rem; /* Antes estava 1.5rem (muito pequeno) */
     }
     
     .subtitle { 
-        font-size: 2.5rem; /* Antes estava 0.5rem (minusculo) */
+        font-size: 1.5rem; /* Antes estava 0.5rem (minusculo) */
         margin-top: -5px;
     }
     

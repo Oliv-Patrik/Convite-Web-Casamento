@@ -42,15 +42,30 @@ nav {
 
 /* --- PÁGINA INICIAL (HOME) --- */
 .hero-fullscreen {
-    height: 100vh;
-    /* Substitua pela sua foto do pôr do sol */
-    background: url('Image/76994.jpg') no-repeat center center/cover;
+    /* 1. Altura mínima para caber o conteúdo, mas ocupa 100% da tela se der */
+    min-height: 100vh;
+    height: auto; 
+    
+    /* 2. Cor de fundo sólida (a "mágica" para a imagem não cortar feio) */
+    background-color: #eaddcf; /* Cor bege extraída da sua imagem */
+    
+    /* 3. Configuração da Imagem */
+    background-image: url('Image/76994.jpg'); /* Verifique o nome exato */
+    background-repeat: no-repeat;
+    
+    /* DESKTOP: Encaixa a imagem na tela sem cortar as flores (contain) */
+    background-size: contain; 
+    background-position: center top; /* Gruda a imagem no topo */
+    
+    /* Flexbox para centralizar o texto */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    color: var(--white);
+    
+    /* 4. CORREÇÃO DE COR DO TEXTO (Branco no bege não lê) */
+    color: #8a6d3b; /* Um dourado escuro/marrom para leitura perfeita */
 }
 
 /* Camada escura suave para o texto aparecer */
@@ -60,10 +75,23 @@ nav {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
 }
 
-.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
+/* Ajustes finos para o Texto não ficar em cima das flores */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 100px 20px; /* Mais padding para afastar das flores do topo/base */
+}
 
-.main-title { font-size: 8rem; font-family: var(--font-serif); margin-bottom: 0; line-height: 0.8; }
-.subtitle { font-family: var(--font-script); font-size: 4rem; color: var(--gold-light); margin-top: -10px; }
+/* Títulos Dourados (ajuste para combinar com a nova cor) */
+.main-title {
+    font-size: 6rem; /* Um pouco menor para caber na moldura */
+    color: #ffffff; /* Título principal branco ainda pode funcionar com sombra */
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+}
+.subtitle {
+    color: #8a6d3b; /* Subtítulo escuro para leitura */
+}
 .quote { font-style: italic; margin-top: 20px; font-size: 1.2rem; letter-spacing: 2px; }
 
 /* Divisor Dourado */
@@ -149,13 +177,24 @@ nav {
 }
 .btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
 
-/* Responsividade */
+/* --- CORREÇÃO PARA CELULAR (MOBILE) --- */
 @media (max-width: 768px) {
-    .main-title { font-size: 5rem; }
-    .subtitle { font-size: 2.5rem; }
-    .card-frame { padding: 20px; margin-top: 50px; }
-    .details-grid { flex-direction: column; gap: 20px; }
-    .floral-corner { width: 100px; height: 100px; } /* Flores menores no celular */
+    .hero-fullscreen {
+        /* No celular, a imagem ocupa 100% da LARGURA e a altura é automática */
+        background-size: 100% auto;
+        
+        /* Alinha a imagem no centro verticalmente para o texto ficar no meio */
+        background-position: center center;
+    }
+
+    .main-title {
+        font-size: 4rem; /* Diminui a fonte no celular */
+    }
+    
+    .hero-content {
+        /* Ajuste o padding para o texto não pegar nas flores */
+        padding: 40px 20px; 
+    }
 }
 
 /* --- LAYOUT GERAL --- */

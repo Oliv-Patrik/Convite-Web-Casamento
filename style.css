@@ -208,7 +208,7 @@ nav {
         font-size: 2.5rem; 
         line-height: 1; /* Junta mais as linhas se o título quebrar */
         margin-bottom: 5px; /* Remove espaço extra abaixo */
-        margin-top: 0.5vh;
+        margin-top: 1vh;
     }
     
     .subtitle { 

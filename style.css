@@ -157,3 +157,14 @@ nav {
     .details-grid { flex-direction: column; gap: 20px; }
     .floral-corner { width: 100px; height: 100px; } /* Flores menores no celular */
 }
+
+/* --- LAYOUT GERAL --- */
+.container {
+    max-width: 800px;   /* Limita a largura para o texto não ficar muito esticado */
+    margin: 60px auto;  /* Centraliza o bloco na tela e dá espaço em cima/baixo */
+    padding: 0 20px;    /* Garante que o texto não cole nas bordas no celular */
+}
+
+.text-center {
+    text-align: center; /* O comando mágico que centraliza o texto */
+}

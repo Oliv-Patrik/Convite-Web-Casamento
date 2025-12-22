@@ -189,8 +189,8 @@ nav {
     .hero-fullscreen {
         background-position: center center;
         background-size: 100% auto; /* Mantém a largura exata do celular */
-        align-items: flex-start; /* Centraliza tudo no meio da tela */
-        margin-top: 50vh;
+        align-items: center; /* Centraliza tudo no meio da tela */
+        
         /* Opcional: Se a tela for muito alta, isso ajuda a focar na imagem */
         /* height: 80vh; */ 
     }
@@ -208,6 +208,7 @@ nav {
         font-size: 2.5rem; 
         line-height: 1; /* Junta mais as linhas se o título quebrar */
         margin-bottom: 5px; /* Remove espaço extra abaixo */
+        margin-top: 50vh;
     }
     
     .subtitle { 

@@ -205,14 +205,14 @@ nav {
 
     .main-title { 
         /* Diminuir um pouco para não bater na linha de cima */
-        font-size: 2.5rem; 
+        font-size: 3rem; 
         line-height: 1; /* Junta mais as linhas se o título quebrar */
         margin-bottom: 5px; /* Remove espaço extra abaixo */
         margin-top: 5vh;
     }
     
     .subtitle { 
-        font-size: 1rem; /* Tamanho equilibrado */
+        font-size: 1.5rem; /* Tamanho equilibrado */
         margin-top: 0px; /* Cola mais no título */
         margin-bottom: 10px;
     }

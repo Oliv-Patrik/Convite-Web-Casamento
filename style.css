@@ -42,30 +42,24 @@ nav {
 
 /* --- PÁGINA INICIAL (HOME) --- */
 .hero-fullscreen {
-    /* 1. Altura mínima para caber o conteúdo, mas ocupa 100% da tela se der */
     min-height: 100vh;
-    height: auto; 
-    
-    /* 2. Cor de fundo sólida (a "mágica" para a imagem não cortar feio) */
-    background-color: #eaddcf; /* Cor bege extraída da sua imagem */
-    
-    /* 3. Configuração da Imagem */
-    background-image: url('Image/76994.jpg'); /* Verifique o nome exato */
+    height: auto;
+    background-color: #eaddcf;
+    background-image: url('Image/76994.jpg');
     background-repeat: no-repeat;
     
-    /* DESKTOP: Encaixa a imagem na tela sem cortar as flores (contain) */
-    background-size: contain; 
-    background-position: center top; /* Gruda a imagem no topo */
+    /* DESKTOP */
+    background-size: contain;
+    background-position: center top;
     
-    /* Flexbox para centralizar o texto */
     display: flex;
-    align-items: center;
+    
+    /* MUDANÇA 1: Removemos o 'align-items: center' para poder empurrar o texto manualmente */
+    align-items: flex-start; 
+    
     justify-content: center;
     text-align: center;
     position: relative;
-    
-    /* 4. CORREÇÃO DE COR DO TEXTO (Branco no bege não lê) */
-    color: #8a6d3b; /* Um dourado escuro/marrom para leitura perfeita */
 }
 
 /* Camada escura suave para o texto aparecer */
@@ -75,27 +69,40 @@ nav {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
 }
 
-/* Ajustes finos para o Texto não ficar em cima das flores */
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 100px 20px; /* Mais padding para afastar das flores do topo/base */
+    max-width: 600px; /* Limita a largura para o texto não bater nas bordas da moldura */
+    
+    /* MUDANÇA 2: Empurramos o texto para baixo para cair dentro da caixa */
+    /* No Desktop, 25vh significa descer 25% da altura da tela */
+    margin-top: 40vh; 
 }
 
-/* Títulos Dourados (ajuste para combinar com a nova cor) */
+/* MUDANÇA 3: Cores para leitura (Branco no bege não lê) */
 .main-title {
-    font-size: 6rem; /* Um pouco menor para caber na moldura */
-    color: #ffffff; /* Título principal branco ainda pode funcionar com sombra */
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+    font-size: 5rem;
+    color: #ffffff; /* O G&V pode ficar branco, mas precisa de sombra */
+    text-shadow: 0px 2px 10px rgba(197, 160, 89, 0.8); /* Sombra dourada para destacar */
+    margin-bottom: 10px;
 }
 .subtitle {
-    color: #8a6d3b; /* Subtítulo escuro para leitura */
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    color: #8a6d3b; /* Dourado escuro/Marrom para ler bem no bege */
+    margin-top: -10px;
 }
-.quote { font-style: italic; margin-top: 20px; font-size: 1.2rem; letter-spacing: 2px; }
+.quote {
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #5c4827; /* Cor escura para a frase ser legível */
+    letter-spacing: 1px;
+}
 
-/* Divisor Dourado */
-.divider-gold { height: 2px; width: 100px; background-color: var(--gold); margin: 20px auto; }
+.divider-gold {
+    background-color: #8a6d3b; /* Escurecer o divisor também */
+}
 
 /* --- PÁGINA DO CONVITE (CARTÃO) --- */
 .invite-page { background-color: #f0ebe5; /* Fundo da mesa/fundo geral */ }
@@ -177,24 +184,21 @@ nav {
 }
 .btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
 
-/* --- CORREÇÃO PARA CELULAR (MOBILE) --- */
+/* --- AJUSTE MOBILE (O Pulo do Gato) --- */
 @media (max-width: 768px) {
     .hero-fullscreen {
-        /* No celular, a imagem ocupa 100% da LARGURA e a altura é automática */
-        background-size: 100% auto;
-        
-        /* Alinha a imagem no centro verticalmente para o texto ficar no meio */
-        background-position: center center;
+        background-size: 100% auto; /* Mantém a largura fixa */
+        background-position: top center;
     }
 
-    .main-title {
-        font-size: 4rem; /* Diminui a fonte no celular */
-    }
-    
     .hero-content {
-        /* Ajuste o padding para o texto não pegar nas flores */
-        padding: 40px 20px; 
+        /* No celular, as flores do topo ocupam muito espaço. 
+           Precisamos empurrar MUITO mais para baixo. */
+        margin-top: 45vw; /* Usamos VW (largura) como base para o push ser proporcional */
     }
+
+    .main-title { font-size: 3.5rem; }
+    .subtitle { font-size: 2.5rem; }
 }
 
 /* --- LAYOUT GERAL --- */

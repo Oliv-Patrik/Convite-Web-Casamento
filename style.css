@@ -228,6 +228,31 @@ nav {
         padding: 0;
         line-height: 1.4;
     }
+
+    /* --- CORREÇÃO DO VÍDEO NO MOBILE --- */
+    .card-frame {
+        /* Reduzimos o padding geral do cartão para sobrar mais espaço */
+        padding: 20px 10px; 
+    }
+
+    .video-wrapper {
+        /* Truque para alargar o vídeo: Margens negativas laterais */
+        width: calc(100% + 20px); /* Aumenta a largura para compensar */
+        margin-left: -10px;       /* Puxa para a esquerda */
+        margin-right: -10px;      /* Puxa para a direita */
+        
+        padding: 2px;             /* Borda interna mais fina */
+        border-width: 2px;        /* Borda dourada mais delicada */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .video-wrapper iframe {
+        /* Garante que o vídeo preencha tudo */
+        width: 100%;
+        /* Opcional: Aumentar levemente a altura no celular para facilitar o clique */
+        aspect-ratio: 4/3; /* Fica mais "quadrado" e alto que o 16/9 padrão */
+    }
 }
 
 /* --- LAYOUT GERAL --- */

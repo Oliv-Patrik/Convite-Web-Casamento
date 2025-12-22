@@ -184,40 +184,48 @@ nav {
 }
 .btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
 
-/* --- AJUSTE MOBILE CORRIGIDO --- */
+/* --- AJUSTE FINO MOBILE (COMPACTAR TEXTO) --- */
 @media (max-width: 768px) {
     .hero-fullscreen {
-        /* 1. Centraliza a moldura na tela do celular (vertical e horizontal) */
         background-position: center center;
-        background-size: 100% auto; /* Mantém a largura cheia */
+        background-size: 100% auto; /* Mantém a largura exata do celular */
+        align-items: center; /* Centraliza tudo no meio da tela */
         
-        /* 2. Alinha o texto no CENTRO da tela novamente */
-        /* Isso anula o 'flex-start' do desktop e traz o texto para o meio da moldura */
-        align-items: center; 
+        /* Opcional: Se a tela for muito alta, isso ajuda a focar na imagem */
+        /* height: 80vh; */ 
     }
 
     .hero-content {
-        /* 3. Remove aquele empurrão gigante (margin-top) que estava jogando o texto para baixo demais ou de menos */
-        /* Como agora estamos centralizando tudo, não precisamos forçar tanto a margem */
-        margin-top: 0; 
+        margin-top: 0;
+        width: 85%; /* Garante margem de segurança nas laterais */
         
-        /* Ajuste fino: Se sentir que o texto precisa subir ou descer um pouquinho para não bater nas flores, mexa aqui */
-        /* Exemplo: padding-top: 20px; */
+        /* truque para subir tudo levemente se ainda parecer baixo */
+        /* transform: translateY(-10px); */ 
     }
 
-    /* 4. Aumentando as fontes para ficarem legíveis e bonitas */
     .main-title { 
-        font-size: 3rem; /* Antes estava 1.5rem (muito pequeno) */
+        /* Diminuir um pouco para não bater na linha de cima */
+        font-size: 3.5rem; 
+        line-height: 1; /* Junta mais as linhas se o título quebrar */
+        margin-bottom: 5px; /* Remove espaço extra abaixo */
     }
     
     .subtitle { 
-        font-size: 1.5rem; /* Antes estava 0.5rem (minusculo) */
-        margin-top: -5px;
+        font-size: 2rem; /* Tamanho equilibrado */
+        margin-top: 0px; /* Cola mais no título */
+        margin-bottom: 10px;
+    }
+
+    .divider-gold {
+        margin: 10px auto; /* Diminui o espaço ao redor do traço */
+        width: 40px; /* Traço menorzinho */
     }
     
     .quote {
-        font-size: 1rem;
-        padding: 0 10px; /* Garante que a frase não encoste nas bordas da tela */
+        font-size: 0.85rem; /* Frase menor para não bater nas flores de baixo */
+        margin-top: 5px; 
+        padding: 0;
+        line-height: 1.4;
     }
 }
 

@@ -184,21 +184,41 @@ nav {
 }
 .btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
 
-/* --- AJUSTE MOBILE (O Pulo do Gato) --- */
+/* --- AJUSTE MOBILE CORRIGIDO --- */
 @media (max-width: 768px) {
     .hero-fullscreen {
-        background-size: 100% auto; /* Mantém a largura fixa */
-        background-position: top center;
+        /* 1. Centraliza a moldura na tela do celular (vertical e horizontal) */
+        background-position: center center;
+        background-size: 100% auto; /* Mantém a largura cheia */
+        
+        /* 2. Alinha o texto no CENTRO da tela novamente */
+        /* Isso anula o 'flex-start' do desktop e traz o texto para o meio da moldura */
+        align-items: center; 
     }
 
     .hero-content {
-        /* No celular, as flores do topo ocupam muito espaço. 
-           Precisamos empurrar MUITO mais para baixo. */
-        margin-top: 45vw; /* Usamos VW (largura) como base para o push ser proporcional */
+        /* 3. Remove aquele empurrão gigante (margin-top) que estava jogando o texto para baixo demais ou de menos */
+        /* Como agora estamos centralizando tudo, não precisamos forçar tanto a margem */
+        margin-top: 0; 
+        
+        /* Ajuste fino: Se sentir que o texto precisa subir ou descer um pouquinho para não bater nas flores, mexa aqui */
+        /* Exemplo: padding-top: 20px; */
     }
 
-    .main-title { font-size: 1.5rem; }
-    .subtitle { font-size: 0.5rem; }
+    /* 4. Aumentando as fontes para ficarem legíveis e bonitas */
+    .main-title { 
+        font-size: 4rem; /* Antes estava 1.5rem (muito pequeno) */
+    }
+    
+    .subtitle { 
+        font-size: 2.5rem; /* Antes estava 0.5rem (minusculo) */
+        margin-top: -5px;
+    }
+    
+    .quote {
+        font-size: 1rem;
+        padding: 0 10px; /* Garante que a frase não encoste nas bordas da tela */
+    }
 }
 
 /* --- LAYOUT GERAL --- */

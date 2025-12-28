@@ -1,277 +1,179 @@
 /* --- CONFIGURAÇÕES GERAIS --- */
 :root {
-    --gold: #c5a059; /* Dourado mais metálico */
-    --gold-light: #e6dace;
-    --text-dark: #2c2c2c;
-    --white: #ffffff;
-    --bg-texture: #fdfbf7; /* Um branco "off-white" mais quente */
-    --font-script: 'Great Vibes', cursive;
-    --font-serif: 'Cormorant Garamond', serif; /* Fonte mais elegante estilo livro */
+    --green-leaf: #3A5F40; /* Verde Musgo/Floresta */
+    --gold: #C5A059;       /* Dourado para detalhes */
+    --text-black: #1a1a1a;
+    --font-script: 'Pinyon Script', cursive; /* Substituto web para Edwardian */
+    --font-serif: 'Cormorant Garamond', serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
+    background-color: #f0f2f0; /* Fundo cinza bem clarinho fora do papel */
     font-family: var(--font-serif);
-    color: var(--text-dark);
-    background-color: var(--bg-texture);
-    line-height: 1.6;
-    font-size: 18px;
-}
-
-/* --- NAVEGAÇÃO --- */
-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    z-index: 100;
-}
-.transparent-nav {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background: transparent;
-    color: var(--white); /* Texto branco na home */
-}
-.transparent-nav .logo, .transparent-nav a { color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-
-.logo { font-family: var(--font-serif); font-size: 2rem; font-weight: bold; letter-spacing: 2px; }
-.nav-links { list-style: none; display: flex; gap: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-dark); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
-
-/* --- PÁGINA INICIAL (HOME) --- */
-.hero-fullscreen {
+    justify-content: center;
     min-height: 100vh;
-    height: auto;
-    background-color: #eaddcf;
-    background-image: url('Image/76994.jpg');
-    background-repeat: no-repeat;
-    
-    /* DESKTOP */
-    background-size: contain;
-    background-position: center top;
-    
-    display: flex;
-    
-    /* MUDANÇA 1: Removemos o 'align-items: center' para poder empurrar o texto manualmente */
-    align-items: flex-start; 
-    
-    justify-content: center;
-    text-align: center;
-    position: relative;
-}
-
-/* Camada escura suave para o texto aparecer */
-.overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px; /* Limita a largura para o texto não bater nas bordas da moldura */
-    
-    /* MUDANÇA 2: Empurramos o texto para baixo para cair dentro da caixa */
-    /* No Desktop, 25vh significa descer 25% da altura da tela */
-    margin-top: 40vh; 
-}
-
-/* MUDANÇA 3: Cores para leitura (Branco no bege não lê) */
-.main-title {
-    font-size: 5rem;
-    color: #ffffff; /* O G&V pode ficar branco, mas precisa de sombra */
-    text-shadow: 0px 2px 10px rgba(197, 160, 89, 0.8); /* Sombra dourada para destacar */
-    margin-bottom: 10px;
-}
-.subtitle {
-    font-family: var(--font-script);
-    font-size: 3.5rem;
-    color: #8a6d3b; /* Dourado escuro/Marrom para ler bem no bege */
-    margin-top: -10px;
-}
-.quote {
-    font-style: italic;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    color: #5c4827; /* Cor escura para a frase ser legível */
-    letter-spacing: 1px;
-}
-
-.divider-gold {
-    background-color: #8a6d3b; /* Escurecer o divisor também */
-}
-
-/* --- PÁGINA DO CONVITE (CARTÃO) --- */
-.invite-page { background-color: #f0ebe5; /* Fundo da mesa/fundo geral */ }
-
-.invite-container {
-    padding: 50px 20px;
-    display: flex;
-    justify-content: center;
-}
-
-/* O "Papel" do convite */
-.card-frame {
-    background-color: var(--white);
-    width: 100%;
-    max-width: 900px;
-    padding: 60px;
-    position: relative; /* Importante para as flores */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    text-align: center;
-    border: 1px solid #e0e0e0;
-}
-
-/* Espaços para as Flores (Floral Corners) */
-.floral-corner {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* Para ver onde elas ficam, deixei uma borda temporária. Remova depois de por a imagem */
-    /* border: 1px dashed red; */ 
-}
-
-/* Aqui você coloca o link da imagem da flor PNG */
-.top-left { top: -20px; left: -20px; background-image: url('sua-flor-esquerda-cima.png'); }
-.top-right { top: -20px; right: -20px; background-image: url('sua-flor-direita-cima.png'); transform: scaleX(-1); }
-.bottom-left { bottom: -20px; left: -20px; background-image: url('sua-flor-esquerda-baixo.png'); transform: scaleY(-1); }
-.bottom-right { bottom: -20px; right: -20px; background-image: url('sua-flor-direita-baixo.png'); transform: scale(-1); }
-
-.card-content { position: relative; z-index: 5; }
-
-.monogram { font-size: 3rem; color: var(--gold); margin-bottom: 10px; }
-.cursive-title { font-family: var(--font-script); font-size: 5rem; color: var(--gold); line-height: 1; margin-bottom: 30px; }
-
-/* Wrapper do vídeo com borda dourada */
-.video-wrapper {
-    border: 4px double var(--gold-light);
-    padding: 10px;
-    margin: 30px auto;
-    max-width: 600px;
-}
-.video-wrapper iframe { width: 100%; aspect-ratio: 16/9; display: block; }
-
-.details-grid {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin: 40px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
     padding: 20px 0;
 }
-.detail-item h3 { font-family: var(--font-script); font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
 
-/* Botão Dourado Estilo Luxo */
-.btn-gold {
+/* O "Papel" do Convite */
+.convite-paper {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px; /* Largura padrão de convite A5/A4 */
+    position: relative;
+    padding: 60px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    overflow: hidden; /* Para cortar as folhas se passarem */
+}
+
+/* --- DECORAÇÃO (FOLHAS) --- */
+.leaf {
+    position: absolute;
+    width: 250px; /* Tamanho das folhas */
+    z-index: 1;
+    pointer-events: none; /* Deixa clicar no texto abaixo se precisar */
+}
+
+.leaf-top {
+    top: -20px;
+    left: -30px;
+    /* Se a imagem for a mesma, podemos rotacionar aqui */
+}
+
+.leaf-bottom {
+    bottom: -20px;
+    right: -30px;
+    transform: rotate(180deg); /* Gira a imagem para o canto oposto */
+}
+
+/* --- CONTEÚDO --- */
+.content {
+    position: relative;
+    z-index: 10; /* Texto fica acima das folhas */
+}
+
+/* Monograma */
+.monogram-container {
+    margin-bottom: 30px;
+    position: relative;
     display: inline-block;
-    background: linear-gradient(45deg, #c5a059, #e6dace, #c5a059);
-    background-size: 200%;
-    color: var(--white);
-    padding: 15px 40px;
+}
+.monogram-text {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: var(--text-black);
+}
+/* Círculo dourado fino ao redor (opcional, como na ref) */
+.monogram-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; height: 80px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* Textos Gerais */
+.verse {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #444;
+}
+.verse-ref {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.parents-section h3, .invite-text {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.parents-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Nomes dos Noivos */
+.couple-names {
+    font-family: var(--font-script);
+    font-size: 5rem; /* Bem grande como na foto */
+    color: var(--text-black);
+    line-height: 1;
+    margin: 20px 0 40px 0;
+    font-weight: 400;
+}
+.amp { font-size: 3rem; color: var(--gold); }
+
+/* Caixa de Data */
+.date-box {
+    border-top: 1px solid var(--text-black);
+    border-bottom: 1px solid var(--text-black);
+    padding: 10px 0;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 450px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+.separator { font-weight: 300; color: #ccc; }
+
+/* Locais */
+.location-section h4 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: var(--green-leaf); /* Verde no título do local */
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+.loc-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Botão RSVP */
+.btn-rsvp {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 10px 30px;
+    border: 1px solid var(--green-leaf);
+    color: var(--green-leaf);
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 2px;
-    transition: 0.4s;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: 0.3s;
 }
-.btn-gold:hover { background-position: right center; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
-
-/* --- AJUSTE FINO MOBILE (COMPACTAR TEXTO) --- */
-@media (max-width: 768px) {
-    .hero-fullscreen {
-        background-position: center center;
-        background-size: 100% auto; /* Mantém a largura exata do celular */
-        align-items: center; /* Centraliza tudo no meio da tela */
-        
-        /* Opcional: Se a tela for muito alta, isso ajuda a focar na imagem */
-        /* height: 80vh; */ 
-    }
-
-    .hero-content {
-        margin-top: 0;
-        width: 85%; /* Garante margem de segurança nas laterais */
-        
-        /* truque para subir tudo levemente se ainda parecer baixo */
-        /* transform: translateY(-10px); */ 
-    }
-
-    .main-title { 
-        /* Diminuir um pouco para não bater na linha de cima */
-        font-size: 3rem; 
-        line-height: 1; /* Junta mais as linhas se o título quebrar */
-        margin-bottom: 5px; /* Remove espaço extra abaixo */
-        margin-top: 5.5vh;
-    }
-    
-    .subtitle { 
-        font-size: 1.5rem; /* Tamanho equilibrado */
-        margin-top: 0px; /* Cola mais no título */
-        margin-bottom: 10px;
-    }
-
-    .divider-gold {
-        margin: 10px auto; /* Diminui o espaço ao redor do traço */
-        width: 40px; /* Traço menorzinho */
-    }
-    
-    .quote {
-        font-size: 0.85rem; /* Frase menor para não bater nas flores de baixo */
-        margin-top: -8px; 
-        padding: 0;
-        line-height: 1.4;
-    }
-
-    /* --- CORREÇÃO DO VÍDEO NO MOBILE --- */
-    .card-frame {
-        /* Reduzimos o padding geral do cartão para sobrar mais espaço */
-        padding: 20px 10px; 
-    }
-
-    .video-wrapper {
-        /* Truque para alargar o vídeo: Margens negativas laterais */
-        width: calc(100% + 20px); /* Aumenta a largura para compensar */
-        margin-left: -10px;       /* Puxa para a esquerda */
-        margin-right: -10px;      /* Puxa para a direita */
-        
-        padding: 2px;             /* Borda interna mais fina */
-        border-width: 2px;        /* Borda dourada mais delicada */
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .video-wrapper iframe {
-        /* Garante que o vídeo preencha tudo */
-        width: 100%;
-        /* Opcional: Aumentar levemente a altura no celular para facilitar o clique */
-        aspect-ratio: 4/3; /* Fica mais "quadrado" e alto que o 16/9 padrão */
-    }
+.btn-rsvp:hover {
+    background-color: var(--green-leaf);
+    color: white;
 }
 
-/* --- LAYOUT GERAL --- */
-.container {
-    max-width: 800px;   /* Limita a largura para o texto não ficar muito esticado */
-    margin: 60px auto;  /* Centraliza o bloco na tela e dá espaço em cima/baixo */
-    padding: 0 20px;    /* Garante que o texto não cole nas bordas no celular */
-    font-size: 1.5rem; /* Aumenta um pouco o tamanho da fonte para melhor leitura */
-}
-
-.text-center {
-    text-align: center; /* O comando mágico que centraliza o texto */
-}
-
-/* Correção do Rodapé */
-footer {
-    text-align: center; /* Centraliza o texto */
-    padding: 20px;      /* Dá um espacinho interno */
-    margin-top: 40px;   /* Afasta do conteúdo de cima */
-    font-size: 2rem;  /* Deixa a fonte um pouquinho menor e mais delicada */
-    color: var(--gold); /* Opcional: Deixa a data dourada para combinar */
+/* --- MOBILE --- */
+@media (max-width: 600px) {
+    .convite-paper { padding: 40px 20px; }
+    .couple-names { font-size: 3.5rem; }
+    .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
+    .separator { display: none; }
+    .leaf { width: 150px; } /* Folhas menores no celular */
 }

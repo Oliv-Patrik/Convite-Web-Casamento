@@ -3,14 +3,14 @@
     --green-leaf: #3A5F40; /* Verde Musgo/Floresta */
     --gold: #C5A059;       /* Dourado para detalhes */
     --text-black: #1a1a1a;
-    --font-script: 'Pinyon Script', cursive; /* Substituto web para Edwardian */
+    --font-script: 'Pinyon Script', cursive; 
     --font-serif: 'Cormorant Garamond', serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: #f0f2f0; /* Fundo cinza bem clarinho fora do papel */
+    background-color: #f0f2f0; 
     font-family: var(--font-serif);
     display: flex;
     justify-content: center;
@@ -22,61 +22,78 @@ body {
 .convite-paper {
     background-color: #ffffff;
     width: 100%;
-    max-width: 600px; /* Largura padrão de convite A5/A4 */
+    max-width: 600px; 
     position: relative;
     padding: 60px 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
-    overflow: hidden; /* Para cortar as folhas se passarem */
+    overflow: hidden; 
 }
 
-/* --- DECORAÇÃO (FOLHAS) --- */
+/* --- DECORAÇÃO (FOLHAS DOS CANTOS) --- */
 .leaf {
     position: absolute;
-    width: 250px; /* Tamanho das folhas */
+    width: 250px; 
     z-index: 1;
-    pointer-events: none; /* Deixa clicar no texto abaixo se precisar */
+    pointer-events: none; 
 }
 
 .leaf-top {
     top: -20px;
     left: -30px;
-    /* Se a imagem for a mesma, podemos rotacionar aqui */
 }
 
 .leaf-bottom {
     bottom: -20px;
     right: -30px;
-    transform: rotate(180deg); /* Gira a imagem para o canto oposto */
+    transform: rotate(180deg); 
 }
 
 /* --- CONTEÚDO --- */
 .content {
     position: relative;
-    z-index: 10; /* Texto fica acima das folhas */
+    z-index: 10; 
 }
 
-/* Monograma */
+/* --- MONOGRAMA (V & G + Guirlanda) --- */
 .monogram-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     position: relative;
     display: inline-block;
+    /* Tamanho da área da guirlanda */
+    width: 220px; /* Aumentei um pouco para dar respiro */
+    height: 220px;
 }
+
+.monogram-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Opacidade removida para a cor ficar vibrante como no template */
+    opacity: 1; 
+}
+
 .monogram-text {
     font-family: var(--font-script);
-    font-size: 3rem;
-    color: var(--text-black);
-}
-/* Círculo dourado fino ao redor (opcional, como na ref) */
-.monogram-circle {
+    font-size: 4rem; /* Aumentado para preencher melhor */
+    /* Cor alterada de preto para um verde bem escuro profundo, para harmonizar */
+    color: #1e3322; 
+    
     position: absolute;
-    top: 50%; left: 50%;
+    /* Ajuste ótico: 48% em vez de 50% levanta o texto ligeiramente para centralizar melhor visualmente a fonte cursiva */
+    top: 48%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px; height: 80px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    opacity: 0.6;
+    z-index: 2;
+    
+    /* Sutil sombra para dar profundidade e separar o texto do fundo botânico */
+    text-shadow: 
+        0px 1px 1px rgba(0,0,0,0.2), /* Pequena sombra escura */
+        0px 0px 5px rgba(255,255,255,0.5); /* Pequeno halo claro para destacar */
+    white-space: nowrap; /* Garante que V & G fique na mesma linha */
 }
+
+/* OBS: A classe .monogram-circle foi removida pois foi substituída pela imagem */
 
 /* Textos Gerais */
 .verse {
@@ -112,7 +129,7 @@ body {
 /* Nomes dos Noivos */
 .couple-names {
     font-family: var(--font-script);
-    font-size: 5rem; /* Bem grande como na foto */
+    font-size: 5rem; 
     color: var(--text-black);
     line-height: 1;
     margin: 20px 0 40px 0;
@@ -141,7 +158,7 @@ body {
 .location-section h4 {
     text-transform: uppercase;
     font-size: 1rem;
-    color: var(--green-leaf); /* Verde no título do local */
+    color: var(--green-leaf); 
     margin-bottom: 5px;
     margin-top: 20px;
 }
@@ -150,30 +167,19 @@ body {
     color: #555;
 }
 
-/* Botão RSVP */
-.btn-rsvp {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 10px 30px;
-    border: 1px solid var(--green-leaf);
-    color: var(--green-leaf);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-.btn-rsvp:hover {
-    background-color: var(--green-leaf);
-    color: white;
-}
+/* O estilo .btn-rsvp pode ser mantido ou removido, 
+   já que o botão foi retirado do HTML, ele não fará efeito visual */
 
 /* --- MOBILE --- */
 @media (max-width: 600px) {
-    .convite-paper { padding: 40px 20px; }
-    .couple-names { font-size: 3.5rem; }
-    .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
-    .separator { display: none; }
-    .leaf { width: 150px; } /* Folhas menores no celular */
+    /* ... outros estilos mobile ... */
+    
+    /* Ajuste do monograma para celular */
+    .monogram-container {
+        width: 180px;
+        height: 180px;
+    }
+    .monogram-text {
+        font-size: 3rem;
+    }
 }

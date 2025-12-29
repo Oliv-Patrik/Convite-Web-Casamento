@@ -3,7 +3,7 @@
     --green-leaf: #3A5F40; /* Verde Musgo/Floresta */
     --gold: #C5A059;       /* Dourado para detalhes */
     --text-black: #1a1a1a;
-    --font-script: 'Pinyon Script', cursive; 
+    --font-script: 'Italianno', cursive;
     --font-serif: 'Cormorant Garamond', serif;
 }
 
@@ -75,28 +75,21 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Opacidade removida para a cor ficar vibrante como no template */
-    opacity: 1; 
+
 }
 
 .monogram-text {
     font-family: var(--font-script);
-    font-size: 3.5rem; /* Aumentado para preencher melhor */
-    /* Cor alterada de preto para um verde bem escuro profundo, para harmonizar */
+    /* Aumentei para 5rem para preencher bem a guirlanda */
+    font-size: 3.5rem; 
     color: #1e3322; 
-    
     position: absolute;
-    /* Ajuste ótico: 48% em vez de 50% levanta o texto ligeiramente para centralizar melhor visualmente a fonte cursiva */
-    top: 50%;
-    left: 47%;
+    top: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    
-    /* Sutil sombra para dar profundidade e separar o texto do fundo botânico */
-    text-shadow: 
-        0px 1px 1px rgba(0,0,0,0.2), /* Pequena sombra escura */
-        0px 0px 5px rgba(255,255,255,0.5); /* Pequeno halo claro para destacar */
-    white-space: nowrap; /* Garante que V & G fique na mesma linha */
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px 0px 5px rgba(255,255,255,0.5); 
+    white-space: nowrap;
 }
 
 /* OBS: A classe .monogram-circle foi removida pois foi substituída pela imagem */
@@ -135,13 +128,39 @@ body {
 /* Nomes dos Noivos */
 .couple-names {
     font-family: var(--font-script);
+    /* Aumentei para 5.5rem pois a Italianno é visualmente menor */
     font-size: 5rem; 
     color: var(--text-black);
-    line-height: 1;
-    margin: 20px 0 40px 0;
+    line-height: 1; /* Reduzi levemente o line-height para aproximar os nomes se quebrar linha */
+    margin: 20px 0 30px 0;
     font-weight: 400;
 }
-.amp { font-size: 3rem; color: var(--gold); }
+
+/* O símbolo '&' (E comercial) na Italianno é muito bonito, mas às vezes precisa de ajuste de tamanho */
+.amp { 
+    font-size: 3rem; /* Um pouco menor que os nomes para ficar harmônico */
+    color: var(--gold); 
+    margin: 0 10px; /* Um pouco de espaço nas laterais */
+}
+
+/* --- 2. NOVO: Estilo do Quadro da Foto --- */
+.photo-frame-container {
+    margin: 0 auto 40px auto; /* Espaçamento acima e abaixo */
+    width: 100%;
+    max-width: 350px; /* Largura máxima da foto */
+    position: relative;
+}
+
+.couple-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Cantos levemente arredondados */
+    /* Moldura dupla para ficar elegante */
+    border: 5px solid #fff; 
+    outline: 1px solid var(--gold); /* Linha dourada externa */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra para destacar do papel */
+    display: block;
+}
 
 /* Caixa de Data */
 .date-box {
@@ -173,8 +192,24 @@ body {
     color: #555;
 }
 
-/* O estilo .btn-rsvp pode ser mantido ou removido, 
-   já que o botão foi retirado do HTML, ele não fará efeito visual */
+/* --- 3. NOVO: Estilo do Player de Música --- */
+.music-player {
+    margin-top: 50px;
+    text-align: center;
+}
+.music-player p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: var(--gold);
+}
+audio {
+    width: 80%;
+    max-width: 300px;
+    height: 30px; /* Deixa o player mais fino */
+    opacity: 0.8;
+}
 
 /* --- MOBILE --- */
 @media (max-width: 600px) {
@@ -196,7 +231,7 @@ body {
         height: 180px;
     }
     .monogram-text {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     
 /* Configuração das Folhas no Mobile */
@@ -214,5 +249,12 @@ body {
         /* Empurrei bem mais para baixo e para a direita */
         bottom: -50px;
         right: -60px;
+    }
+
+    .couple-names { font-size: 4rem; }
+    
+    /* Ajuste da foto no celular */
+    .photo-frame-container {
+        max-width: 280px; 
     }
 }

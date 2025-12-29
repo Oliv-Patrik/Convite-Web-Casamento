@@ -216,7 +216,7 @@ body {
     
     /* Ajustes Mobile Monograma e Folhas */
     .monogram-container { width: 180px; height: 180px; }
-    .monogram-text { font-size: 3rem; }
+    .monogram-text { font-size: 2.8rem; }
     
     .leaf { width: 160px; } 
     .leaf-top { top: -40px; left: -50px; }

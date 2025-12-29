@@ -5,13 +5,12 @@
     font-style: normal;
 }
 
-
 /* --- CONFIGURAÇÕES GERAIS --- */
 :root {
-    --green-leaf: #3A5F40; /* Verde Musgo/Floresta */
-    --gold: #C5A059;       /* Dourado para detalhes */
+    --green-leaf: #3A5F40; 
+    --gold: #C5A059;       
     --text-black: #1a1a1a;
-    --font-script: 'Edwardian Script ITC', cursive;
+    --font-script: 'Edwardian Script ITC', cursive; /* Usando sua fonte local */
     --font-serif: 'Cormorant Garamond', serif;
 }
 
@@ -26,7 +25,6 @@ body {
     padding: 20px 0;
 }
 
-/* O "Papel" do Convite */
 .convite-paper {
     background-color: #ffffff;
     width: 100%;
@@ -35,30 +33,24 @@ body {
     padding: 60px 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
-    
-    /* ALTERAÇÃO IMPORTANTE: */
-    /* Mudei de 'hidden' para 'visible' para as folhas não serem cortadas nas bordas */
-    overflow: hidden; 
+    overflow: hidden; /* Mantive 'visible' para as folhas saírem da borda se quiser */
 }
 
 /* --- DECORAÇÃO (FOLHAS) --- */
 .leaf {
     position: absolute;
-    /* Aumentei para 320px para dar o destaque igual ao do template */
     width: 310px; 
-    z-index: 10; /* Aumentei o z-index para garantir que fiquem sobre a borda se necessário */
+    z-index: 10; 
     pointer-events: none;
 }
 
 .leaf-top {
-    /* Ajuste fino para encaixar o canto da imagem no canto do papel */
-    top: -80px;   /* Puxa para cima */
-    left: -120px;  /* Puxa para a esquerda */
-    transform: rotate(180deg); /* Mantém a rotação para espelhar */
+    top: -80px;   
+    left: -120px;  
+    transform: rotate(180deg); 
 }
 
 .leaf-bottom {
-    /* Ajuste fino para o canto oposto */
     bottom: -80px;
     right: -120px;
 }
@@ -69,13 +61,12 @@ body {
     z-index: 10; 
 }
 
-/* --- MONOGRAMA (V & G + Guirlanda) --- */
+/* --- MONOGRAMA --- */
 .monogram-container {
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
-    /* Tamanho da área da guirlanda */
-    width: 220px; /* Aumentei um pouco para dar respiro */
+    width: 220px; 
     height: 220px;
 }
 
@@ -83,24 +74,20 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-
 }
 
 .monogram-text {
     font-family: var(--font-script);
-    /* Aumentei para 5rem para preencher bem a guirlanda */
-    font-size: 3rem; 
+    font-size: 3rem; /* Ajustado para Edwardian */
     color: #1e3322; 
     position: absolute;
     top: 50%; 
     left: 45%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px 0px 5px rgba(255,255,255,0.5); 
+    text-shadow: 0px 0px 3px rgba(255,255,255,0.8); 
     white-space: nowrap;
 }
-
-/* OBS: A classe .monogram-circle foi removida pois foi substituída pela imagem */
 
 /* Textos Gerais */
 .verse {
@@ -133,49 +120,61 @@ body {
     font-size: 1.1rem;
 }
 
+/* --- NOVA SEÇÃO: FUNDO FOTO DOS NOIVOS --- */
+.destaque-casal {
+    position: relative;
+    /* Imagem de fundo */
+    background-image: url('Image/Valdinei-e-Gabriela.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    /* Espaçamento interno */
+    padding: 60px 20px;
+    
+    /* Margens verticais para separar dos pais e locais */
+    margin: 30px 0;
+    
+    border-radius: 8px; /* Cantos levemente arredondados */
+    overflow: hidden; /* Garante que a foto respeite as bordas */
+}
+
+/* Camada branca por cima da foto (Overlay) */
+.destaque-casal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.75); /* 75% branco - Ajuste esse número se quiser ver mais a foto */
+    z-index: 1;
+}
+
+/* Garante que o texto fique ACIMA da camada branca */
+.destaque-casal > * {
+    position: relative;
+    z-index: 2;
+}
+
 /* Nomes dos Noivos */
 .couple-names {
     font-family: var(--font-script);
-    /* Aumentei para 5.5rem pois a Italianno é visualmente menor */
-    font-size: 5rem; 
+    font-size: 6rem; /* Edwardian costuma ser pequena, aumentei bem */
     color: var(--text-black);
-    line-height: 1; /* Reduzi levemente o line-height para aproximar os nomes se quebrar linha */
-    margin: 20px 0 30px 0;
+    line-height: 1;
+    margin-bottom: 30px;
     font-weight: 400;
 }
 
-/* O símbolo '&' (E comercial) na Italianno é muito bonito, mas às vezes precisa de ajuste de tamanho */
 .amp { 
-    font-size: 3rem; /* Um pouco menor que os nomes para ficar harmônico */
-    color: var(--black); 
-    margin: 0 10px; /* Um pouco de espaço nas laterais */
+    font-size: 4rem; 
+    color: var(--text-black); 
+    margin: 0 10px; 
 }
 
-/* --- 2. NOVO: Estilo do Quadro da Foto --- */
-.photo-frame-container {
-    margin: 0 auto 40px auto; /* Espaçamento acima e abaixo */
-    width: 100%;
-    max-width: 350px; /* Largura máxima da foto */
-    position: relative;
-}
-
-.couple-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 4px; /* Cantos levemente arredondados */
-    /* Moldura dupla para ficar elegante */
-    border: 5px solid #fff; 
-    outline: 1px solid var(--gold); /* Linha dourada externa */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra para destacar do papel */
-    display: block;
-}
-
-/* Caixa de Data */
+/* Caixa de Data (Ajustada para ficar bonita sobre a foto) */
 .date-box {
     border-top: 1px solid var(--text-black);
     border-bottom: 1px solid var(--text-black);
-    padding: 10px 0;
-    margin: 30px auto;
+    padding: 15px 0;
+    margin: 30px auto 0 auto;
     width: 100%;
     max-width: 450px;
     font-size: 1.3rem;
@@ -185,7 +184,7 @@ body {
     gap: 20px;
     align-items: center;
 }
-.separator { font-weight: 300; color: #ccc; }
+.separator { font-weight: 300; color: #555; }
 
 /* Locais */
 .location-section h4 {
@@ -200,29 +199,12 @@ body {
     color: #555;
 }
 
-/* --- 3. NOVO: Estilo do Player de Música --- */
-.music-player {
-    margin-top: 50px;
-    text-align: center;
-}
-.music-player p {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: var(--gold);
-}
-audio {
-    width: 80%;
-    max-width: 300px;
-    height: 30px; /* Deixa o player mais fino */
-    opacity: 0.8;
-}
-
 /* --- MOBILE --- */
 @media (max-width: 600px) {
     .convite-paper { padding: 40px 20px 120px 20px; }
-    .couple-names { font-size: 3.5rem; }
+    
+    .couple-names { font-size: 4.5rem; }
+    
     .date-box { 
         flex-direction: column; 
         gap: 5px; 
@@ -231,38 +213,19 @@ audio {
         border-right: 0; 
     }
     .separator { display: none; }
-    .leaf { width: 150px; } 
     
-    /* Ajuste do monograma para celular, se necessário */
-    .monogram-container {
-        width: 180px;
-        height: 180px;
-    }
-    .monogram-text {
-        font-size: 3.5rem;
-    }
+    /* Ajustes Mobile Monograma e Folhas */
+    .monogram-container { width: 180px; height: 180px; }
+    .monogram-text { font-size: 3.5rem; }
     
-/* Configuração das Folhas no Mobile */
-    .leaf { 
-        /* Reduzi levemente para 160px para equilibrar melhor */
-        width: 160px; 
-    } 
+    .leaf { width: 160px; } 
+    .leaf-top { top: -40px; left: -50px; }
+    .leaf-bottom { bottom: -50px; right: -60px; }
 
-    .leaf-top {
-        top: -40px;  /* Empurrei um pouco mais para cima */
-        left: -50px;
-    }
-
-    .leaf-bottom {
-        /* Empurrei bem mais para baixo e para a direita */
-        bottom: -50px;
-        right: -60px;
-    }
-
-    .couple-names { font-size: 3.5rem; }
-    
-    /* Ajuste da foto no celular */
-    .photo-frame-container {
-        max-width: 280px; 
+    /* Ajuste da seção com foto no mobile */
+    .destaque-casal {
+        margin: 20px -20px; /* Expande para as laterais no mobile */
+        border-radius: 0;
+        padding: 40px 10px;
     }
 }

@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casamento Valdinei & Gabriela</title>
     <link rel="stylesheet" href="style.css">
-     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <audio id="bg-music" loop>
+        <source src="Music/Marcos-&-Belutti-Sonho-De-Todo-Casal(Energia)-refrão.mp3" type="audio/mpeg">
+    </audio>
 
     <main class="convite-paper">
         
@@ -39,20 +43,17 @@
                 </div>
             </div>
 
-            <h1 class="couple-names">Valdinei <span class="amp">&</span> Gabriela</h1>
+            <div class="destaque-casal">
+                <h1 class="couple-names">Valdinei <span class="amp">&</span> Gabriela</h1>
 
-            <div class="photo-frame-container">
-                <img src="Image/Valdinei-e-Gabriela.jpg" alt="Foto de Valdinei e Gabriela" class="couple-photo">
+                <p class="invite-text">CONVIDAM VOCÊ PARA O NOSSO CASAMENTO:</p>
+
+                <div class="date-box">
+                    <span class="date">06 . JUNHO . 2026</span>
+                    <span class="separator">|</span>
+                    <span class="time">ÀS 16:30</span>
+                </div>
             </div>
-
-            <p class="invite-text">CONVIDAM VOCÊ PARA O NOSSO CASAMENTO:</p>
-
-            <div class="date-box">
-                <span class="date">06 . JUNHO . 2026</span>
-                <span class="separator">|</span>
-                <span class="time">ÀS 16:30</span>
-            </div>
-
             <div class="location-section">
                 <div class="loc-item">
                     <h4>CERIMÔNIA: PARÓQUIA SÃO PEDRO</h4>
@@ -65,19 +66,34 @@
                 </div>
             </div>
 
-            <div class="music-player">
-                <p>Trilha Sonora</p>
-                <audio controls>
-                    <source src="Music/Marcos-&-Belutti-Sonho-De-Todo-Casal(Energia)-refrão.mp3" type="audio/mpeg">
-                    Seu navegador não suporta áudio.
-                </audio>
-            </div>
-
         </div>
 
         <img src="Image/folhagens.png" alt="Folhas Baixo" class="leaf leaf-bottom">
 
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById("bg-music");
+            
+            // Tenta dar play automaticamente
+            var playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay funcionou!
+                })
+                .catch(error => {
+                    // Autoplay foi bloqueado pelo navegador.
+                    // Adicionamos um evento para tocar no primeiro clique em qualquer lugar da tela.
+                    console.log("Autoplay bloqueado. Aguardando interação do usuário.");
+                    document.body.addEventListener('click', function() {
+                        audio.play();
+                    }, { once: true }); // {once: true} garante que o evento rode apenas uma vez
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>

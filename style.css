@@ -177,7 +177,7 @@ body {
    já que o botão foi retirado do HTML, ele não fará efeito visual */
 
 /* --- MOBILE --- */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .convite-paper { padding: 40px 20px; }
     .couple-names { font-size: 3.5rem; }
     .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }

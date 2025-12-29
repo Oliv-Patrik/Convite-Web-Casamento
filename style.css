@@ -22,31 +22,37 @@ body {
 .convite-paper {
     background-color: #ffffff;
     width: 100%;
-    max-width: 600px; 
+    max-width: 600px;
     position: relative;
     padding: 60px 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
+    
+    /* ALTERAÇÃO IMPORTANTE: */
+    /* Mudei de 'hidden' para 'visible' para as folhas não serem cortadas nas bordas */
     overflow: hidden; 
 }
 
-/* --- DECORAÇÃO (FOLHAS DOS CANTOS) --- */
+/* --- DECORAÇÃO (FOLHAS) --- */
 .leaf {
     position: absolute;
-    width: 250px; 
-    z-index: 1;
-    pointer-events: none; 
+    /* Aumentei para 320px para dar o destaque igual ao do template */
+    width: 310px; 
+    z-index: 10; /* Aumentei o z-index para garantir que fiquem sobre a borda se necessário */
+    pointer-events: none;
 }
 
 .leaf-top {
-    top: -20px;
-    left: -30px;
+    /* Ajuste fino para encaixar o canto da imagem no canto do papel */
+    top: -80px;   /* Puxa para cima */
+    left: -120px;  /* Puxa para a esquerda */
+    transform: rotate(180deg); /* Mantém a rotação para espelhar */
 }
 
 .leaf-bottom {
-    bottom: -20px;
-    right: -30px;
-    transform: rotate(180deg); 
+    /* Ajuste fino para o canto oposto */
+    bottom: -80px;
+    right: -120px;
 }
 
 /* --- CONTEÚDO --- */
@@ -75,14 +81,14 @@ body {
 
 .monogram-text {
     font-family: var(--font-script);
-    font-size: 4rem; /* Aumentado para preencher melhor */
+    font-size: 3.5rem; /* Aumentado para preencher melhor */
     /* Cor alterada de preto para um verde bem escuro profundo, para harmonizar */
     color: #1e3322; 
     
     position: absolute;
     /* Ajuste ótico: 48% em vez de 50% levanta o texto ligeiramente para centralizar melhor visualmente a fonte cursiva */
-    top: 48%;
-    left: 50%;
+    top: 50%;
+    left: 47%;
     transform: translate(-50%, -50%);
     z-index: 2;
     
@@ -172,14 +178,30 @@ body {
 
 /* --- MOBILE --- */
 @media (max-width: 600px) {
-    /* ... outros estilos mobile ... */
+    .convite-paper { padding: 40px 20px; }
+    .couple-names { font-size: 3.5rem; }
+    .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
+    .separator { display: none; }
+    .leaf { width: 150px; } 
     
-    /* Ajuste do monograma para celular */
+    /* Ajuste do monograma para celular, se necessário */
     .monogram-container {
         width: 180px;
         height: 180px;
     }
     .monogram-text {
         font-size: 3rem;
+    }
+    
+    .leaf { 
+        width: 180px; /* Reduz um pouco no celular para não cobrir o texto */
+    } 
+    .leaf-top {
+        top: -30px;
+        left: -30px;
+    }
+    .leaf-bottom {
+        bottom: -30px;
+        right: -30px;
     }
 }

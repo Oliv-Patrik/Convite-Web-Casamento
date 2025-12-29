@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Edwardian Script ITC';
+    src: url('fonts/ITCEDSCR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* --- CONFIGURAÇÕES GERAIS --- */
 :root {
     --green-leaf: #3A5F40; /* Verde Musgo/Floresta */
     --gold: #C5A059;       /* Dourado para detalhes */
     --text-black: #1a1a1a;
-    --font-script: 'Italianno', cursive;
+    --font-script: 'Edwardian Script ITC', cursive;
     --font-serif: 'Cormorant Garamond', serif;
 }
 
@@ -81,11 +89,11 @@ body {
 .monogram-text {
     font-family: var(--font-script);
     /* Aumentei para 5rem para preencher bem a guirlanda */
-    font-size: 3.5rem; 
+    font-size: 3rem; 
     color: #1e3322; 
     position: absolute;
     top: 50%; 
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
     z-index: 2;
     text-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px 0px 5px rgba(255,255,255,0.5); 
@@ -139,7 +147,7 @@ body {
 /* O símbolo '&' (E comercial) na Italianno é muito bonito, mas às vezes precisa de ajuste de tamanho */
 .amp { 
     font-size: 3rem; /* Um pouco menor que os nomes para ficar harmônico */
-    color: var(--gold); 
+    color: var(--black); 
     margin: 0 10px; /* Um pouco de espaço nas laterais */
 }
 
@@ -251,7 +259,7 @@ audio {
         right: -60px;
     }
 
-    .couple-names { font-size: 4rem; }
+    .couple-names { font-size: 3.5rem; }
     
     /* Ajuste da foto no celular */
     .photo-frame-container {

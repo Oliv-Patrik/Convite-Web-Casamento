@@ -177,12 +177,12 @@ body {
    já que o botão foi retirado do HTML, ele não fará efeito visual */
 
 /* --- MOBILE --- */
-@media (max-width: 620px) {
+@media (max-width: 600px) {
     .convite-paper { padding: 40px 20px; }
     .couple-names { font-size: 3.5rem; }
     .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
     .separator { display: none; }
-    .leaf { width: 170px; } 
+    .leaf { width: 150px; } 
     
     /* Ajuste do monograma para celular, se necessário */
     .monogram-container {
@@ -198,10 +198,10 @@ body {
     } 
     .leaf-top {
         top: -30px;
-        left: -30px;
+        left: -50px;
     }
     .leaf-bottom {
         bottom: -30px;
-        right: -30px;
+        right: -50px;
     }
 }

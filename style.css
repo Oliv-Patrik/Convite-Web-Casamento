@@ -178,9 +178,15 @@ body {
 
 /* --- MOBILE --- */
 @media (max-width: 600px) {
-    .convite-paper { padding: 40px 20px; }
+    .convite-paper { padding: 40px 20px 120px 20px; }
     .couple-names { font-size: 3.5rem; }
-    .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
+    .date-box { 
+        flex-direction: column; 
+        gap: 5px; 
+        border: 1px solid #ccc; 
+        border-left: 0; 
+        border-right: 0; 
+    }
     .separator { display: none; }
     .leaf { width: 150px; } 
     
@@ -193,15 +199,20 @@ body {
         font-size: 3rem;
     }
     
+/* Configuração das Folhas no Mobile */
     .leaf { 
-        width: 180px; /* Reduz um pouco no celular para não cobrir o texto */
+        /* Reduzi levemente para 160px para equilibrar melhor */
+        width: 160px; 
     } 
+
     .leaf-top {
-        top: -30px;
+        top: -40px;  /* Empurrei um pouco mais para cima */
         left: -50px;
     }
+
     .leaf-bottom {
-        bottom: -30px;
-        right: -50px;
+        /* Empurrei bem mais para baixo e para a direita */
+        bottom: -50px;
+        right: -60px;
     }
 }

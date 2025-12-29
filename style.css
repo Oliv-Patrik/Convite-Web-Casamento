@@ -186,8 +186,8 @@ body {
     
     /* Ajuste do monograma para celular, se necessário */
     .monogram-container {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
     }
     .monogram-text {
         font-size: 3rem;

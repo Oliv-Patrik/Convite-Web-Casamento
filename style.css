@@ -126,10 +126,10 @@ body {
     /* Imagem de fundo */
     background-image: url('Image/Valdinei-e-Gabriela.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top-center;
     
     /* Espaçamento interno */
-    padding: 60px 20px;
+    padding: 100px 20px 60px 20px;
     
     /* Margens verticais para separar dos pais e locais */
     margin: 30px 0;
@@ -156,7 +156,7 @@ body {
 /* Nomes dos Noivos */
 .couple-names {
     font-family: var(--font-script);
-    font-size: 6rem; /* Edwardian costuma ser pequena, aumentei bem */
+    font-size: 5rem; /* Edwardian costuma ser pequena, aumentei bem */
     color: var(--text-black);
     line-height: 1;
     margin-bottom: 30px;

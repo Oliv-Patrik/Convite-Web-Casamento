@@ -182,7 +182,7 @@ body {
     .couple-names { font-size: 3.5rem; }
     .date-box { flex-direction: column; gap: 5px; border: 1px solid #ccc; border-left: 0; border-right: 0; }
     .separator { display: none; }
-    .leaf { width: 150px; } 
+    .leaf { width: 170px; } 
     
     /* Ajuste do monograma para celular, se necessário */
     .monogram-container {
